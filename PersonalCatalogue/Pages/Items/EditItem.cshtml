@@ -1,0 +1,29 @@
+﻿@page "{itemId:int}"
+@model PersonalCatalogue.Pages.Items.EditItemModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2> Editing @Model.Item.Name</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Item.Id" />
+    <div class="form-group">
+        <label asp-for="Item.Name"></label>
+        <input asp-for="Item.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Item.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Description"></label>
+        <input asp-for="Item.Description" class="form-control" />
+        <span class="text-danger" asp-validation-for="Item.Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Item.Price"></label>
+        <input asp-for="Item.Price" class="form-control" />
+        <span class="text-danger" asp-validation-for="Item.Price"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+

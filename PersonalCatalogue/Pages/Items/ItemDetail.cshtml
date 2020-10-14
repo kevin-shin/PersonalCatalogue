@@ -1,0 +1,23 @@
+﻿@page "{itemId:int}"
+@model PersonalCatalogue.Pages.Items.ItemDetailModel
+@{
+}
+
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+
+<h2>@Model.Item.Name</h2>
+<div>
+    <div>
+        Description : @Model.Item.Description
+    </div>
+</div>
+
+
+
+<a asp-page="./Index" class="btn btn-default"> All Items </a>
+

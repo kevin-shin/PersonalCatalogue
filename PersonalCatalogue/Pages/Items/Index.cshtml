@@ -1,0 +1,51 @@
+﻿@page
+@model PersonalCatalogue.Pages.Items.IndexModel
+@{
+}
+
+<h1> Items </h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search"
+                   class="form-control"
+                   asp-for="SearchTerm"
+                   name="searchTerm"
+            />
+            <span class="input-group-btn">
+                <button class="input-group-btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    @foreach(var item in Model._items)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>
+                <a class="btn-default btn-lg"
+                   asp-page="./ItemDetail"
+                   asp-route-itemId="@item.Id">
+                    ItemDetail
+                </a>
+                <a class="btn-default btn-lg"
+                   asp-page="./EditItem"
+                   asp-route-itemId="@item.Id">
+                    ItemEdit
+                </a>
+
+            </td>
+
+        </tr>
+    }
+</table>
+
+<a asp-page="./CreateItem" class="btn btn-primary"> New Item</a>
