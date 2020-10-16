@@ -30,7 +30,6 @@ namespace PersonalCatalogue.Pages.Items
             if (ModelState.IsValid)
             {
                 Item = _itemData.Create(Item);
-                _itemData.Commit();
                 TempData["Message"] = "Item Created.";
                 return RedirectToPage("./ItemDetail", new { itemId = Item.ItemId });
             }

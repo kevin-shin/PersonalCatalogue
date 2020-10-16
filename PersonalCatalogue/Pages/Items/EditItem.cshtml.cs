@@ -36,7 +36,6 @@ namespace PersonalCatalogue.Pages.Items
             if (ModelState.IsValid)
             {
                 Item = _itemData.Update(Item);
-                _itemData.Commit();
                 TempData["Message"] = "Updated Item.";
                 return RedirectToPage("./Detail", new { itemId = Item.ItemId});
             }

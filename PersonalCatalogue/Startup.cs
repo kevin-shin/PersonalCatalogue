@@ -29,7 +29,7 @@ namespace PersonalCatalogue
             services.AddRazorPages();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IItemData, ItemData>();
-            services.AddDbContext<ItemDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:LocalDBConnection"], b => b.MigrationsAssembly("PersonalCatalogue")));
+            services.AddDbContext<CatalogueDbContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:LocalDBConnection"], b => b.MigrationsAssembly("PersonalCatalogue")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

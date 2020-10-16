@@ -7,21 +7,17 @@ namespace PersonalCatalogue.Data
 {
     public class ItemData : IItemData
     {
-        private readonly ItemDbContext context;
+        private readonly CatalogueDbContext context;
 
-        public ItemData(ItemDbContext context)
+        public ItemData(CatalogueDbContext context)
         {
             this.context = context;
-        }
-  
-        public int Commit()
-        {
-            return context.SaveChanges();
         }
 
         public Item Create(Item newItem)
         {
             context.Add(newItem);
+            context.SaveChanges();
             return newItem;
         }
 
@@ -31,6 +27,7 @@ namespace PersonalCatalogue.Data
             if (item != null)
             {
                 context.Remove(item);
+                context.SaveChanges();
             }
         }
 

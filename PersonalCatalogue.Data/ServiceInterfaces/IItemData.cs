@@ -10,6 +10,5 @@ namespace PersonalCatalogue.Data
         Item Update(Item updatedItem);
         Item Create(Item newItem);
         void Delete(int id);
-        int Commit();
     }
 }

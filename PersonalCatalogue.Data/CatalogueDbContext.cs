@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PersonalCatalogue.Data
 {
-    public class ItemDbContext : DbContext
+    public class CatalogueDbContext : DbContext
     {
-        public ItemDbContext(DbContextOptions<ItemDbContext> options) : base(options) { }
+        public CatalogueDbContext(DbContextOptions<CatalogueDbContext> options) : base(options) { }
 
         public DbSet<Item> items { get; set; }
 
