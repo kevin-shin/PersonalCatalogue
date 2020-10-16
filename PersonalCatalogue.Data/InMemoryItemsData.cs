@@ -16,32 +16,32 @@ namespace PersonalCatalogue.Data
             {
                 new Item
                 {
-                    Id = 1,
+                    ItemId = 1,
                     Name = "Vile Bodies",
-                    PurchaseDate = new DateTime(),
+                    Purchased = new DateTime(),
                     Description = "A novel by Evenlyen Waugh",
-                    Tag = "Book",
-                    ImageLocation = "Vile_bodies.png",
+                    TagId = 0,
+                    ImagePath = "Vile_bodies.png",
                     Price = 10.50
                 },
                 new Item
                 {
-                    Id=2,
+                    ItemId=2,
                     Name = "Th Death of Ivan Lynch",
-                    PurchaseDate = new DateTime(),
+                    Purchased = new DateTime(),
                     Description = "A novel by Leo Tolstoy",
-                    Tag = "Book",
-                    ImageLocation = "ivan_lynch.png",
+                    TagId = 2,
+                    ImagePath = "ivan_lynch.png",
                     Price = 11.45
                 },
                 new Item
                 {
-                    Id=3,
+                    ItemId=3,
                     Name = "Atonement",
-                    PurchaseDate = new DateTime(),
+                    Purchased = new DateTime(),
                     Description = "A novel by Ian McEwan",
-                    Tag = "Book",
-                    ImageLocation = "Ian_Mc.png",
+                    TagId = 1,
+                    ImagePath = "Ian_Mc.png",
                     Price = 10.50
                 }
             };
@@ -57,12 +57,12 @@ namespace PersonalCatalogue.Data
 
         public Item GetItemById(int itemId)
         {
-            return _items.SingleOrDefault(r => r.Id == itemId);
+            return _items.SingleOrDefault(r => r.ItemId == itemId);
         }
 
         public Item Update(Item updatedItem)
         {
-            var item = _items.SingleOrDefault(item => item.Id == updatedItem.Id);
+            var item = _items.SingleOrDefault(item => item.ItemId == updatedItem.ItemId);
             if (item != null)
             {
                 item.Name = updatedItem.Name;
@@ -75,8 +75,8 @@ namespace PersonalCatalogue.Data
 
         public Item Create(Item newItem)
         { 
-            var maxId = _items.Max(item => item.Id);
-            newItem.Id = maxId + 1;
+            var maxId = _items.Max(item => item.ItemId);
+            newItem.ItemId = maxId + 1;
             _items.Add(newItem);
             return newItem;
 
@@ -90,7 +90,7 @@ namespace PersonalCatalogue.Data
 
         public void Delete(int id)
         {
-            var item = _items.FirstOrDefault(r => r.Id == id);
+            var item = _items.FirstOrDefault(r => r.ItemId == id);
             if (item != null)
             {
                 _items.Remove(item);

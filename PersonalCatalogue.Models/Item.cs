@@ -1,20 +1,35 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonalCatalogue.Data
 
 {
+    [Table("items")]
     public class Item
     {
+        [Key]
         [Required]
-        public int Id { get; set; }
+        [Column("itemid")]
+        public int ItemId { get; set; }
 
         [Required]
+        [Column("name")]
         public string Name { get; set; }
+
+        [Column("description")]
         public string Description { get; set; }
-        public string Tag { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public string ImageLocation { get; set; }
+
+        [Column("tagid")]
+        public int TagId { get; set; }
+
+        [Column("purchased")]
+        public DateTime Purchased { get; set; }
+
+        [Column("imagepath")]
+        public string ImagePath { get; set; }
+
+        [Column("price")]
         public double Price { get; set; }
 
     }

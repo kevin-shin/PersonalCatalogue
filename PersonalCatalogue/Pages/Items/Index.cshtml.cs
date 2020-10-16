@@ -13,7 +13,7 @@ namespace PersonalCatalogue.Pages.Items
     {
         private readonly IConfiguration _configuration;
         private readonly IItemData _itemData;
-        public IEnumerable<Item> _items;
+        public IEnumerable<Data.Item> _items;
 
         [BindProperty(SupportsGet = true)] // modelBinding
         public string SearchTerm { get; set; }

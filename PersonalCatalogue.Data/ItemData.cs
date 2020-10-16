@@ -36,12 +36,12 @@ namespace PersonalCatalogue.Data
 
         public Item GetItemById(int itemId)
         {
-            return context.Items.Find(itemId);
+            return context.items.Find(itemId);
         }
 
         public IEnumerable<Item> GetItemsByName(string name)
         {
-            var query = from r in context.Items
+            var query = from r in context.items
                         where r.Name.StartsWith(name) || string.IsNullOrEmpty(name)
                         orderby r.Name
                         select r;
@@ -51,12 +51,12 @@ namespace PersonalCatalogue.Data
 
         public IEnumerable<Item> GetItems(string name)
         {
-            return context.Items.ToList();
+            return context.items.ToList();
         }
 
         public Item Update(Item updatedItem)
         {
-            var entity = context.Items.Attach(updatedItem);
+            var entity = context.items.Attach(updatedItem);
             entity.State = EntityState.Modified;
             return updatedItem;
         }

@@ -11,7 +11,7 @@ namespace PersonalCatalogue.Pages.Items
     public class CreateItemModel : PageModel
     {
         [BindProperty]
-        public Item Item { get; set; }
+        public Data.Item Item { get; set; }
         private IItemData _itemData { get; set; }
 
         public CreateItemModel(IItemData itemData)
@@ -21,7 +21,7 @@ namespace PersonalCatalogue.Pages.Items
 
         public IActionResult OnGet()
         {
-            Item = new Item();
+            Item = new Data.Item();
             return Page();
         }
 
@@ -32,7 +32,7 @@ namespace PersonalCatalogue.Pages.Items
                 Item = _itemData.Create(Item);
                 _itemData.Commit();
                 TempData["Message"] = "Item Created.";
-                return RedirectToPage("./ItemDetail", new { itemId = Item.Id });
+                return RedirectToPage("./ItemDetail", new { itemId = Item.ItemId });
             }
 
             return Page();

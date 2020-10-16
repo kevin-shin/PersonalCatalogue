@@ -11,7 +11,7 @@ namespace PersonalCatalogue.Pages.Items
     public class EditItemModel : PageModel
     {
         [BindProperty]
-        public Item Item { get; set; }
+        public Data.Item Item { get; set; }
         private IItemData _itemData { get; set; }
 
         public EditItemModel(IItemData itemData)
@@ -38,7 +38,7 @@ namespace PersonalCatalogue.Pages.Items
                 Item = _itemData.Update(Item);
                 _itemData.Commit();
                 TempData["Message"] = "Updated Item.";
-                return RedirectToPage("./Detail", new { itemId = Item.Id});
+                return RedirectToPage("./Detail", new { itemId = Item.ItemId});
             }
 
             return Page();

@@ -10,7 +10,7 @@ namespace PersonalCatalogue.Pages.Items
 {
     public class ItemDetailModel : PageModel
     {
-        public Item Item { get; set; }
+        public Data.Item Item { get; set; }
 
         [TempData]
         public string Message { get; set; }
